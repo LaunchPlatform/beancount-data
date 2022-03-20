@@ -19,6 +19,8 @@ jobs:
       - run:
           name: Publish
           command: poetry publish
+    environment:
+      PYPI_USERNAME: __token__
 
 workflows:
   build-and-publish:
