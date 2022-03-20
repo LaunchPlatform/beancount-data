@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "beancount-data"
+version = "0.1.0"
+description = "Pydantic data models for exporting Beancount data"
+authors = ["Fang-Pen Lin <fangpen@launchplatform.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^1.9.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
