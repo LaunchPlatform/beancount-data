@@ -25,4 +25,7 @@ jobs:
 workflows:
   build-and-publish:
     jobs:
-      - build-and-publish
+      - build-and-publish:
+          filters:
+            tags:
+              only: /^.*/
