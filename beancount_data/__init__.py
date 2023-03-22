@@ -148,7 +148,7 @@ class Document(EntryBase):
 class Custom(EntryBase):
     entry_type: EntryType = Field(EntryType.CUSTOM, const=EntryType.CUSTOM)
     type: str
-    values: typing.List[str]
+    values: typing.List[typing.Union[Amount, decimal.Decimal, str, bool]]
 
 
 EntryUnion = typing.Union[
