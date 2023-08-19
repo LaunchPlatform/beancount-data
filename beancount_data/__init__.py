@@ -68,30 +68,30 @@ class CostSpec(BaseModel):
 
 
 class Open(EntryBase):
-    entry_type: EntryType = Field(EntryType.OPEN, const=EntryType.OPEN)
+    entry_type: EntryType = Field(EntryType.OPEN, const=True)
     account: Account
     currencies: typing.Optional[typing.List[str]]
     booking: typing.Optional[Booking]
 
 
 class Close(EntryBase):
-    entry_type: EntryType = Field(EntryType.CLOSE, const=EntryType.CLOSE)
+    entry_type: EntryType = Field(EntryType.CLOSE, const=True)
     account: Account
 
 
 class Commodity(EntryBase):
-    entry_type: EntryType = Field(EntryType.COMMODITY, const=EntryType.COMMODITY)
+    entry_type: EntryType = Field(EntryType.COMMODITY, const=True)
     currency: str
 
 
 class Pad(EntryBase):
-    entry_type: EntryType = Field(EntryType.PAD, const=EntryType.PAD)
+    entry_type: EntryType = Field(EntryType.PAD, const=True)
     account: Account
     source_account: str
 
 
 class Balance(EntryBase):
-    entry_type: EntryType = Field(EntryType.BALANCE, const=EntryType.BALANCE)
+    entry_type: EntryType = Field(EntryType.BALANCE, const=True)
     account: Account
     amount: Amount
     tolerance: typing.Optional[decimal.Decimal]
@@ -108,7 +108,7 @@ class Posting(BaseModel):
 
 
 class Transaction(EntryBase):
-    entry_type: EntryType = Field(EntryType.TRANSACTION, const=EntryType.TRANSACTION)
+    entry_type: EntryType = Field(EntryType.TRANSACTION, const=True)
     flag: Flag
     payee: typing.Optional[str]
     narration: str
@@ -118,7 +118,7 @@ class Transaction(EntryBase):
 
 
 class Note(EntryBase):
-    entry_type: EntryType = Field(EntryType.NOTE, const=EntryType.NOTE)
+    entry_type: EntryType = Field(EntryType.NOTE, const=True)
     account: Account
     comment: str
     tags: typing.Set[str]
@@ -126,19 +126,19 @@ class Note(EntryBase):
 
 
 class Event(EntryBase):
-    entry_type: EntryType = Field(EntryType.EVENT, const=EntryType.EVENT)
+    entry_type: EntryType = Field(EntryType.EVENT, const=True)
     type: str
     description: str
 
 
 class Price(EntryBase):
-    entry_type: EntryType = Field(EntryType.PRICE, const=EntryType.PRICE)
+    entry_type: EntryType = Field(EntryType.PRICE, const=True)
     currency: str
     amount: Amount
 
 
 class Document(EntryBase):
-    entry_type: EntryType = Field(EntryType.DOCUMENT, const=EntryType.DOCUMENT)
+    entry_type: EntryType = Field(EntryType.DOCUMENT, const=True)
     account: Account
     filename: str
     tags: typing.Set[str]
@@ -146,7 +146,7 @@ class Document(EntryBase):
 
 
 class Custom(EntryBase):
-    entry_type: EntryType = Field(EntryType.CUSTOM, const=EntryType.CUSTOM)
+    entry_type: EntryType = Field(EntryType.CUSTOM, const=True)
     type: str
     values: typing.List[typing.Union[Amount, decimal.Decimal, str, bool]]
 
