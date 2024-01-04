@@ -1,4 +1,4 @@
-namespace beanhub.schema.beancountdata;
+namespace beancount_data.fbs.data_types;
 
 enum Booking: byte {
     STRICT,
