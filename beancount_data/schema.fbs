@@ -102,6 +102,50 @@ table Transaction {
     postings: [Posting];
 }
 
+table Note {
+    account: string (required);
+    comment: string (required);
+    tags: [string];
+    links: [string];
+}
+
+table Event {
+    type: string (required);
+    description: string (required);
+}
+
+table Price {
+    currency: string;
+    amount: string;
+}
+
+table Document {
+    account: string (required);
+    filename: string (required);
+    tags: [string];
+    links: [string];
+}
+
+enum CustomValueType: byte {
+    AMOUNT,
+    DECIMAL,
+    STR,
+    BOOL,
+}
+
+table CustomValue {
+    type: CustomValueType;
+    amount_value: Amount;
+    decimal_value: string;
+    str_value: string;
+    bool_value: bool;
+}
+
+table Custom {
+    type: string (required);
+    values: [CustomValue];
+}
+
 union EntryPayload {
     Open,
     Close,
@@ -109,6 +153,10 @@ union EntryPayload {
     Pad,
     Balance,
     Transaction,
+    Note,
+    Event,
+    Document,
+    Custom,
 }
 
 table Entry {
