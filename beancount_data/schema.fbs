@@ -19,13 +19,6 @@ table Amount {
     currency: string (required);
 }
 
-table Cost {
-    number: string (required);
-    currency: string (required);
-    date: Date (required);
-    label: string;
-}
-
 enum MapValueType: byte {
     STRING,
     INT,
@@ -44,6 +37,27 @@ table MapItem {
     bson_value: [ubyte];
 }
 
+table Cost {
+    number: string (required);
+    currency: string (required);
+    date: Date (required);
+    label: string;
+}
+
+table CostSpec {
+    number_per: string;
+    number_total: string;
+    currency: string;
+    date: Date (required);
+    label: string;
+    merge: bool;
+}
+
+union CostTypes {
+    Cost,
+    CostSpec,
+}
+
 table Open {
     account: string (required);
     currencies: [string];
@@ -58,9 +72,43 @@ table Commodity {
     currency: string (required);
 }
 
+table Pad {
+    account: string (required);
+    source_account: string (required);
+}
+
+table Balance {
+    account: string (required);
+    amount: Amount (required);
+    tolerance: string;
+    diff_amount: Amount;
+}
+
+table Posting {
+    account: string (required);
+    units: Amount (required);
+    cost: CostTypes;
+    price: Amount;
+    flag: string;
+    meta: [MapItem];
+}
+
+table Transaction {
+    flag: string (required);
+    payee: string;
+    narration: string (required);
+    tags: [string];
+    links: [string];
+    postings: [Posting];
+}
+
 union EntryPayload {
     Open,
-    Close
+    Close,
+    Commodity,
+    Pad,
+    Balance,
+    Transaction,
 }
 
 table Entry {
@@ -70,7 +118,7 @@ table Entry {
 }
 
 table Beancount {
-  exporter_version:string;
+  exporter_version: string;
   entries: [Entry];
 }
 
