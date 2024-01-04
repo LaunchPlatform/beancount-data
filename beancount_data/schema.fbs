@@ -1,0 +1,77 @@
+namespace beanhub.schema.beancountdata;
+
+enum Booking: byte {
+    STRICT,
+    NONE,
+    AVERAGE,
+    FIFO,
+    LIFO
+}
+
+struct Date {
+    year: ushort;
+    month: ubyte;
+    day: ubyte;
+}
+
+table Amount {
+    number: string;
+    currency: string (required);
+}
+
+table Cost {
+    number: string (required);
+    currency: string (required);
+    date: Date (required);
+    label: string;
+}
+
+enum MapValueType: byte {
+    STRING,
+    INT,
+    BOOL,
+    JSON,
+    BSON,
+}
+
+table MapItem {
+    key: string (key, required);
+    type: MapValueType;
+    string_value: string;
+    int_value: int;
+    bool_value: bool;
+    json_value: string;
+    bson_value: [ubyte];
+}
+
+table Open {
+    account: string (required);
+    currencies: [string];
+    booking: Booking;
+}
+
+table Close {
+    account: string (required);
+}
+
+table Commodity {
+    currency: string (required);
+}
+
+union EntryPayload {
+    Open,
+    Close
+}
+
+table Entry {
+    date: string (required);
+    meta: [MapItem];
+    payload: EntryPayload;
+}
+
+table Beancount {
+  exporter_version:string;
+  entries: [Entry];
+}
+
+root_type Beancount;
