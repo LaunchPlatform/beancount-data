@@ -132,10 +132,7 @@ files = [
     {file = "typing_extensions-4.11.0.tar.gz", hash = "sha256:83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"},
 ]
 
-[extras]
-flatbuffers = []
-
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "3c9e2975479716ea256d537bb0ebced496c76d4344c5b59cdab11324ce42c0df"
+content-hash = "77db7b026dc3704b5c91e57f3381951dfe82c8012e18545e1e5f33019816ad9e"

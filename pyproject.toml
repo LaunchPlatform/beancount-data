@@ -9,9 +9,6 @@ license = "MIT"
 python = "^3.9"
 pydantic = ">= 2.0.0, <3.0.0"
 
-[tool.poetry.extras]
-flatbuffers = ["flatbuffers"]
-
 [tool.poetry.dev-dependencies]
 
 [build-system]
