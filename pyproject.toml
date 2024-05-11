@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pydantic = "^1.9.0"
+pydantic = ">= 2.0.0, <3.0.0"
 flatbuffers = { version = "^23.5", optional = true }
 
 [tool.poetry.extras]
