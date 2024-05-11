@@ -14,7 +14,7 @@ Meta = typing.Dict[str, typing.Any]
 
 
 @enum.unique
-class Booking(enum.Enum):
+class Booking(str, enum.Enum):
     STRICT = "STRICT"
     NONE = "NONE"
     AVERAGE = "AVERAGE"
@@ -23,7 +23,7 @@ class Booking(enum.Enum):
 
 
 @enum.unique
-class EntryType(enum.Enum):
+class EntryType(str, enum.Enum):
     OPEN = "open"
     CLOSE = "close"
     COMMODITY = "commodity"

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beancount-data"
-version = "3.0.1"
+version = "3.0.2"
 description = "Pydantic data models for exporting Beancount data"
 authors = ["Fang-Pen Lin <fangpen@launchplatform.com>"]
 license = "MIT"
